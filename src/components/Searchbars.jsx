@@ -101,7 +101,7 @@ useEffect(()=>{
         </Box>
         <Spacer />
 
-        <Box display='flex'>
+        <Flex>
         <Box display={{base:'none',lg:'flex'}} pt={3} fontSize={15}>
         <Box p={{md:'5px'}}><FaBolt /></Box>QUICK BUY! Get 15% off on medicines*
         </Box>
@@ -109,8 +109,7 @@ useEffect(()=>{
         <Box pt={1} display={{base:'none',lg:'block'}} >
         <Button px={7}  bg='red.400' color='white'>Quick Order</Button>
         </Box>
-        </Box>
-        <Spacer />
+        </Flex>
         </Flex>
       {city && show && <Box p={5} bg='gray.100' value={city} onClick={()=>{
             seSelected(city)

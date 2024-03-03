@@ -16,7 +16,7 @@ const Footer = () => {
     <div>
       <Heading textAlign='center' fontWeight={500} fontSize={25} mb={10}>INDIA'S LARGEST HEALTHCARE PLATFORM</Heading>
       <Flex justifyContent='center' alignItems='center'>
-        <SimpleGrid columns={3} gap={{base:5,md:20}} pb={{base:12,md:0}}>
+        <SimpleGrid columns={3} gap={{base:5,md:20,lg:40}} pb={{base:12,md:0}}>
           <Box h={100} textAlign='center'>
             <Box fontWeight='700' fontSize={34}>260m+</Box>
             <Box>Visitors</Box>
@@ -247,7 +247,7 @@ Got a health query? Consult doctors online from the comfort of your home for fre
   </AccordionItem>
   </Accordion>
   <hr />
-  <Flex py={{md:10}} pb={{base:24}}>
+  <Flex py={{md:10}} pl={{md:1}} pb={{base:24}}>
     <Box color='#536971'>© 2024 Tata 1mg. All rights reserved. All medicines are dispensed in compliance with the Drugs and Cosmetics Act, 1940 and Drugs and Cosmetics Rules, 1945.
        We do not process requests for Schedule X and habit forming drugs.</Box>
        <Spacer />
