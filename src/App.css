@@ -2,3 +2,16 @@
     color: red;
     text-decoration: none;
 }
+
+.nav2 a:hover{
+    color: red;
+    text-decoration: none;
+}
+ul{
+    padding-top: 16px;
+}
+li{
+    font-size: 13px;
+    margin-top: 5px;
+
+}
