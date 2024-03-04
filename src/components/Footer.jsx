@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import SignUp from './SignUp'
 import { AiFillFacebook, AiFillInstagram, AiFillLinkedin, AiFillTwitterCircle, AiFillYoutube } from 'react-icons/ai'
 import { FaApple, FaCcAmex, FaCcMastercard, FaCcVisa, FaGooglePlay, FaLock, FaMedium,FaShieldAlt, FaWallet } from 'react-icons/fa'
-import netbanking from "C:/Users/arish/OneDrive/Desktop/netbanking.png"
 import { FaRupeeSign } from 'react-icons/fa'
 
 
