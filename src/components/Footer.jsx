@@ -13,7 +13,8 @@ const Footer = () => {
   const [mob,setMob] = useState('')
   const [index,setIndex] = useState([-1])
   return (
-    <div>
+    <div style={{paddingTop:"20px"}}>
+      <hr />
       <Heading textAlign='center' fontWeight={500} fontSize={25} mb={10}>INDIA'S LARGEST HEALTHCARE PLATFORM</Heading>
       <Flex justifyContent='center' alignItems='center'>
         <SimpleGrid columns={3} gap={{base:5,md:20,lg:40}} pb={{base:12,md:0}}>
@@ -220,7 +221,7 @@ const Footer = () => {
   <AccordionItem >
     <h2>
       <AccordionButton>
-        <Box as="span" flex='1' textAlign='left' fontWeight='bold'>
+        <Box as="span" flex='1' textAlign='left' color='black' fontWeight='bold'>
           Know more about Tata 1mg
         </Box>
         <AccordionIcon />

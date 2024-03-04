@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route, Routes} from "react-router-dom"
-import Medicines from '../pages/Medicines' 
+import Medicines from '../pages/Medicines/Medicines' 
 import LabTests from '../pages/LabTests'
 import ConsultDoctors from '../pages/ConsultDoctors'
 import CancerCare from '../pages/CancerCare'
@@ -11,6 +11,7 @@ import SignUp from '../components/SignUp'
 import Offers from '../pages/Offers'
 import Cart from '../pages/Cart'
 import Help from '../pages/Help'
+import MainProducts from '../pages/Products/MainProducts'
 
 
 const AllRoutes = () => {
@@ -26,6 +27,7 @@ const AllRoutes = () => {
         <Route path='/offers' element={<Offers />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/help' element={<Help />} />
+        <Route path='/products' element={<MainProducts />}/>
       </Routes>
     </div>
   )
