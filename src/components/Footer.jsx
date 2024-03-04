@@ -255,7 +255,7 @@ Got a health query? Consult doctors online from the comfort of your home for fre
        <Box>
       <Box display='flex'><FaCcMastercard size={36}/><FaCcVisa size={36}/><FaCcAmex size={36}/></Box>
       <Box display='flex'><Img src='https://cdn.iconscout.com/icon/free/png-512/free-payment-rupay-card-pay-bank-transaction-51318.png?f=webp&w=256' width={12} />
-      <Img src={netbanking} w={12}/>
+      <Img src='https://cdn.iconscout.com/icon/free/png-256/free-netbanking-credit-debit-bank-transaction-card-32270.png' w={12}/>
       <Icon mt={3} boxSize={8}><FaRupeeSign/></Icon>
       </Box>
       </Box>
