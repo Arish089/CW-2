@@ -12,6 +12,7 @@ import Offers from '../pages/Offers'
 import Cart from '../pages/Cart'
 import Help from '../pages/Help'
 import MainProducts from '../pages/Products/MainProducts'
+import PrivateRoute from './PrivateRoute'
 
 
 const AllRoutes = () => {
@@ -27,7 +28,11 @@ const AllRoutes = () => {
         <Route path='/offers' element={<Offers />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/help' element={<Help />} />
-        <Route path='/products' element={<MainProducts />}/>
+        <Route path='/products' element={
+        <PrivateRoute>
+        <MainProducts />
+        </PrivateRoute>
+      }/>
       </Routes>
     </div>
   )

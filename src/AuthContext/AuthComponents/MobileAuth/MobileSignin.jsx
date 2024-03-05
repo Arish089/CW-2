@@ -1,4 +1,4 @@
-import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import { RecaptchaVerifier, setPersistence, signInWithPhoneNumber,browserLocalPersistence } from 'firebase/auth';
 import { useState } from 'react'
 import { auth } from '../../FirebaseAuth';
 import { FormControl, FormLabel, Input, Button, Box,Text } from '@chakra-ui/react';
@@ -28,6 +28,7 @@ const MobileSignin = () => {
   const handleSignIn = async () => {
     const regex = /[6-9]\d{9}/
     generateRecaptcha();
+    setPersistence(auth,browserLocalPersistence)
     let appVerifier = window.recaptchaVerifier;
     if(regex.test(mobNumber)){
     setShow(true)

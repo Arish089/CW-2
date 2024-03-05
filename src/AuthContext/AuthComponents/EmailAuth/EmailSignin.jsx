@@ -1,4 +1,4 @@
-import {  signInWithEmailAndPassword } from "firebase/auth";
+import {  signInWithEmailAndPassword,setPersistence,browserLocalPersistence } from "firebase/auth";
 import {auth} from "../../FirebaseAuth"
 import { useState } from "react";
 import { FormControl,FormLabel,Input,Box,Button } from "@chakra-ui/react";
@@ -14,18 +14,19 @@ const EmailSignin = ()=>{
 
     async function SignInEmail(e){
         e.preventDefault();
+        await setPersistence(auth, browserLocalPersistence);
         try {
             const userCredent = await signInWithEmailAndPassword(auth,email,password)
             const user = userCredent.user
             console.log("User Signed in",user);
         } catch (error) {
-            console.log("Sign-Ip error",error);
+            console.log("Sign-In error",error);
         }
         }
 
         return(
             <>
-            <FormControl onSubmit={SignInEmail}>
+            <FormControl >
                 <Box mb={10} mt={5}>
                 <FormLabel
           htmlFor="email"
@@ -66,7 +67,7 @@ const EmailSignin = ()=>{
                 onFocus={() => setisPasswordFocused(true)}
                 onBlur={() => setisPasswordFocused(false)}
                  onChange={(e)=>setPassword(e.target.value)}/>
-                 <Input mt={10} type="submit" value="SignUp" bg='red.500' color='white'/>
+                 <Input mt={10} type="submit" value="SignIn" bg='red.500' color='white' onClick={SignInEmail}/>
                  </Box>
             </FormControl>
 

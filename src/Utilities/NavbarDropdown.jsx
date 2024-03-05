@@ -10,7 +10,7 @@ export const Navbar_dropdown = () => {
       <div className="dropdown_div">
         <ul>
           <li>
-            <Link to='/Products' >
+            <Link to='/products' >
                 <Flex alignItems='center'>Health Resource Center
               <FaChevronDown className="dropdown_icon"/></Flex>
             </Link>
@@ -33,7 +33,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products'>
+            <Link to='/products'>
                 <Flex alignItems='center'>
                 Covid Essentials
               <FaChevronDown className="dropdown_icon"  />
@@ -68,7 +68,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products'>
+            <Link to='/products'>
                 <Flex alignItems='center'>
                 Featured
               <FaChevronDown className="dropdown_icon" />
@@ -130,7 +130,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products' >
+            <Link to='/products' >
                 <Flex alignItems='center'>
                 Products
               <FaChevronDown className="dropdown_icon" />
@@ -220,7 +220,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products'>
+            <Link to='/products'>
               <Flex alignItems='center'>
               Diabetes
               <FaChevronDown className="dropdown_icon" />
@@ -267,7 +267,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products'>
+            <Link to='/products'>
                 <Flex alignItems='center'>
                 Healthcare Devices
               <FaChevronDown className="dropdown_icon" />
@@ -353,7 +353,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products'>
+            <Link to='/products'>
               <Flex alignItems='center'>
               Personal Care{" "}
               <FaChevronDown className="dropdown_icon" />
@@ -454,7 +454,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products'>
+            <Link to='/products'>
                 <Flex alignItems='center'>
                 Health Conditions
               <FaChevronDown className="dropdown_icon" />
@@ -524,7 +524,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products'>
+            <Link to='/products'>
               <Flex alignItems='center'>
               Ayurveda Products
               <FaChevronDown className="dropdown_icon" />
@@ -587,7 +587,7 @@ export const Navbar_dropdown = () => {
             </ul>
           </li>
           <li>
-            <Link to='/Products'>
+            <Link to='/products'>
               <Flex alignItems='center'>
               Homeopathy{" "}
               <FaChevronDown className="dropdown_icon" />

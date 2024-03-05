@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Hide, Icon, Link, Spacer } from '@chakra-ui/react'
+import React, { useContext } from 'react';
+import { Icon, Link, Spacer } from '@chakra-ui/react'
 import {Flex,Box, Image} from "@chakra-ui/react"
 import LogIn from './LogIn'
 import SignUp from './SignUp'
@@ -8,8 +8,12 @@ import {FiShoppingCart} from "react-icons/fi"
 import {AiOutlineHome} from "react-icons/ai"
 import { FaFlask, FaSignInAlt, FaUserMd } from 'react-icons/fa';
 import {IoIosHeart} from 'react-icons/io'
+import { AuthContext } from '../AuthContext/FirebaseAuthContext';
+import Logout from './Logout';
 
 const Navbar = () => {
+  const {CurrentUser} = useContext(AuthContext)
+
   return (
     <Flex className='nav' borderBottom="2px solid whitesmoke">
       <Box>
@@ -46,14 +50,15 @@ const Navbar = () => {
       </Box>
 
       <Spacer />
-      <Box>
+      <Box >
         <Flex>
         <Box  px={4} h={70} pt={4} fontWeight="semibold">
-          <Flex>
+          {CurrentUser ? <Logout /> :
+          <Flex >
           <Link mx={2} ><LogIn /></Link>
           |
-          <Link mx={2}><SignUp /></Link>
-          </Flex>
+          <Link mx={2} ><SignUp /></Link>
+          </Flex>}
         </Box>
         <Spacer />
         <Box  px={4} h={70} pt={4} fontWeight="semibold">

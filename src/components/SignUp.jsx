@@ -12,7 +12,7 @@ const finalRef = React.useRef(null)
 
 return (
   <>
-    <Text onClick={onOpen}>Signup</Text>
+    <Text onClick={onOpen} cursor='pointer'>Signup</Text>
 
     <Modal
       initialFocusRef={initialRef}

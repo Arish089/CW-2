@@ -19,7 +19,7 @@ const handleShow = ()=>{
 }
 return (
   <>
-    <Text onClick={onOpen}>Signin</Text>
+    <Text onClick={onOpen} cursor='pointer'>Signin</Text>
 
     <Modal
       initialFocusRef={initialRef}
