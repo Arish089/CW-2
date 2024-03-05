@@ -1,15 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from 'react-icons/fa';
 import { SimpleGrid, Image,Text,Card,CardBody,CardFooter,ButtonGroup,Button,Divider,Heading,Stack } from '@chakra-ui/react'
-import data from "../../../db.json"
-
 
 
 const Products = () => {
+const [items,setItems] = useState([]); 
+const baseUrl = 'http://localhost:3000'
+async function fetchProd(){
+  try {
+    const rep = await fetch(`${baseUrl}/featured`)
+    const finalrep = await rep.json();
+    //console.log(finalrep);
+    setItems(finalrep)
+    
+  } catch (error) {
+    console.log(error);
+  }
+}
+useEffect(()=>{
+fetchProd()
 
-  const items = data.featured
-  return (
+},[])
+
+const AddProd =async ()=>{
+const resp = await axios({
+  method:'post',
+  baseUrl: baseUrl,
+  url: `/cart`,
+  data:{
+
+  }
+})
+}
+return (
     <SimpleGrid columns={{base:1,sm:2,md:3}} gap={{base:2,sm:6,md:12}}>
        {items.map((elem)=>{
         return(
