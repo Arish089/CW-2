@@ -7,6 +7,9 @@ import { SimpleGrid, Image,Text,Card,CardBody,CardFooter,ButtonGroup,Button,Divi
 
 const Products = () => {
 const [items,setItems] = useState([]); 
+const [cartItems, setCartItems] = useState([]);
+
+
 const baseUrl = 'http://localhost:3000'
 async function fetchProd(){
   try {
@@ -34,6 +37,18 @@ const resp = await axios({
   }
 })
 }
+
+useEffect(() => {
+  const storedCartItems = JSON.parse(localStorage.getItem('unit')) || [];
+  //console.log(storedCartItems);
+  setCartItems(storedCartItems);
+}, []);
+
+useEffect(()=>{
+localStorage.setItem('unit',JSON.stringify(cartItems))
+},[cartItems])
+
+
 return (
     <SimpleGrid columns={{base:1,sm:2,md:3}} gap={{base:2,sm:6,md:12}}>
        {items.map((elem)=>{
@@ -62,7 +77,9 @@ return (
       <Button variant='solid' colorScheme='blue'>
         Buy now
       </Button>
-      <Button variant='ghost' colorScheme='blue'>
+      <Button variant='ghost' colorScheme='blue' onClick={()=>{
+        setCartItems((prevCartItems) => [...prevCartItems, elem]);
+      }}>
         Add to cart
       </Button>
     </ButtonGroup>

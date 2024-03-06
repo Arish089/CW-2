@@ -26,7 +26,10 @@ const AllRoutes = () => {
         <Route path='/ayurveda' element={<Ayurveda />} />
         <Route path='/carePlan' element={<CarePlan/>} />
         <Route path='/offers' element={<Offers />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/cart' element={
+        <PrivateRoute>
+        <Cart />
+        </PrivateRoute>} />
         <Route path='/help' element={<Help />} />
         <Route path='/products' element={
         <PrivateRoute>

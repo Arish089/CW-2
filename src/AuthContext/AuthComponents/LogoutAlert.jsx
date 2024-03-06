@@ -43,7 +43,7 @@ export default function LogOutAlert({logout}) {
                 <Button colorScheme='red' onClick={()=>{
                     logout()
                     onClose}} ml={3}>
-                  Delete
+                  Logout
                 </Button>
               </AlertDialogFooter>
             </AlertDialogContent>
