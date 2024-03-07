@@ -18,7 +18,7 @@ const EmailSignin = ()=>{
         try {
             const userCredent = await signInWithEmailAndPassword(auth,email,password)
             const user = userCredent.user
-            console.log("User Signed in",user);
+            console.log(user,"Signed in");
         } catch (error) {
             console.log("Sign-In error",error);
         }

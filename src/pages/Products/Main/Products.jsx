@@ -3,40 +3,18 @@ import axios from 'axios'
 import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from 'react-icons/fa';
 import { SimpleGrid, Image,Text,Card,CardBody,CardFooter,ButtonGroup,Button,Divider,Heading,Stack } from '@chakra-ui/react'
-
+import data from '../../../db.json'
 
 const Products = () => {
 const [items,setItems] = useState([]); 
 const [cartItems, setCartItems] = useState([]);
 
 
-const baseUrl = 'http://localhost:3000'
-async function fetchProd(){
-  try {
-    const rep = await fetch(`${baseUrl}/featured`)
-    const finalrep = await rep.json();
-    //console.log(finalrep);
-    setItems(finalrep)
-    
-  } catch (error) {
-    console.log(error);
-  }
-}
 useEffect(()=>{
-fetchProd()
+setItems(data.featured)
 
 },[])
 
-const AddProd =async ()=>{
-const resp = await axios({
-  method:'post',
-  baseUrl: baseUrl,
-  url: `/cart`,
-  data:{
-
-  }
-})
-}
 
 useEffect(() => {
   const storedCartItems = JSON.parse(localStorage.getItem('unit')) || [];
