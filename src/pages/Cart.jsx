@@ -10,7 +10,7 @@ const [total,setTotal] = useState(0)
 const fetchCart=()=>{
   const storedCartItems = JSON.parse(localStorage.getItem('unit')) || []
  // console.log(storedCartItems);
-  let pri = 0;
+  var pri = 0;
   storedCartItems?.map((element)=>{
     
     pri += element.price 

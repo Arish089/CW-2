@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Icon, Link, Spacer } from '@chakra-ui/react'
+import { Icon, Spacer } from '@chakra-ui/react'
+import {Link} from "react-router-dom"
 import {Flex,Box, Image} from "@chakra-ui/react"
 import LogIn from './LogIn'
 import SignUp from './SignUp'
@@ -19,31 +20,31 @@ const Navbar = () => {
       <Box>
         <Flex>
       <Box  px={2} h={70} pt={2}>
-        <Link href='/'><Image src='https://www.1mg.com/images/tata_1mg_logo.svg'/></Link>
+        <Link to='/'><Image src='https://www.1mg.com/images/tata_1mg_logo.svg'/></Link>
       </Box>
       <Spacer />
       <Box  px={4} h={70} pt={4} fontWeight="bold">
-        <Link href='/'>MEDICINES</Link>
+        <Link to='/'>MEDICINES</Link>
       </Box>
       <Spacer />
       <Box  px={4} h={70} pt={4} fontWeight="bold">
-      <Link href='/labtests'>LAB TESTS</Link>
+      <Link to='/labtests'>LAB TESTS</Link>
       </Box>
       <Spacer />
       <Box  px={4} h={70} pt={4} fontWeight="bold">
-        <Link href='/doctors'>CONSULT DOCTORS</Link>
+        <Link to='/doctors'>CONSULT DOCTORS</Link>
         </Box>
         <Spacer />
       <Box  px={4} h={70} pt={4} fontWeight="bold">
-      <Link href='/cancerCare'>CANCER CARE</Link>
+      <Link to='/cancerCare'>CANCER CARE</Link>
       </Box>
       <Spacer />
       <Box  px={4} h={70} pt={4} fontWeight="bold">
-      <Link href='/ayurveda'>AYURVEDA</Link>
+      <Link to='/ayurveda'>AYURVEDA</Link>
       </Box>
       <Spacer />
       <Box  px={4} h={70} pt={4} fontWeight="bold">
-      <Link href='/carePlan'>CARE PLAN</Link>
+      <Link to='/carePlan'>CARE PLAN</Link>
       </Box>
       </Flex>
 
@@ -62,17 +63,17 @@ const Navbar = () => {
         </Box>
         <Spacer />
         <Box  px={4} h={70} pt={4} fontWeight="semibold">
-          <Link href='/offers'>Offers</Link>
+          <Link to='/offers'>Offers</Link>
         </Box>
         <Spacer />
         <Box  px={4} h={70} pt={4} fontWeight="semibold">
-          <Link href='/cart'>
+          <Link to='/cart'>
           <Icon as={FiShoppingCart} boxSize={6}>Cart</Icon>
           </Link>
         </Box>
         <Spacer />
         <Box  px={4} h={70} pt={4} fontWeight="semibold">
-          <Link href='/help'>Need help?</Link>
+          <Link to='/help'>Need help?</Link>
           </Box>
           </Flex>
       </Box>
@@ -87,41 +88,41 @@ const Navbar2 = ()=>{
     <Box p={4} py={{base:2}} position="fixed" bg='white' bottom="0" left="0" right="0" className='nav2'>
       <Flex>
         <Box>
-          <Link href='/'>
+          <Link to='/'>
           <Box pl={1}><AiOutlineHome size={28}/></Box>
           Home 
           </Link>
         </Box>
         <Spacer />
         <Box ml={{base:2,md:0}}>
-        <Link href='/doctors'>
+        <Link to='/doctors'>
           <Box pl={{base:2,md:10}} ><FaUserMd size={28}/></Box>Consult Doctors 
           </Link>
         </Box>
         <Spacer />
         <Box>
-        <Link href='/carePlan'>
+        <Link to='/carePlan'>
           <Box pl={{md:4}}><IoIosHeart size={28} /></Box>
           Care Plan 
           </Link>
         </Box>
         <Spacer />
         <Box>
-        <Link href='/labtests'>
+        <Link to='/labtests'>
           <Box pl={{md:4}}><FaFlask size={28}/></Box>
           Lab Tests 
           </Link>
         </Box>
         <Spacer />
         <Box>
-        <Link href='/'>
+        <Link to='/'>
           <Box pl={{md:7}}><FaSignInAlt size={28}/></Box>
           Login | Signup
           </Link>
         </Box>
         <Spacer />
         <Box pr={4}>
-        <Link href='/cart'>
+        <Link to='/cart'>
         <FiShoppingCart size={28}/><Box pl={1}>Cart</Box>  
           </Link>
         </Box>
