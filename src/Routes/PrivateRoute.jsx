@@ -7,7 +7,7 @@ import { Box, Flex,Text } from '@chakra-ui/react'
 
 const PrivateRoute = ({children}) => {
   const {CurrentUser} = useContext(AuthContext)
-  console.log(CurrentUser );
+  //console.log(CurrentUser );
   
   if(!CurrentUser){
     return(<Flex justifyContent='space-around' w='20%' m='auto' alignItems='center' h={100} fontSize={32} >

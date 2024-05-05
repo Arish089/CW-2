@@ -12,7 +12,7 @@ const Footer = () => {
   const [mob,setMob] = useState('')
   const [index,setIndex] = useState([-1])
   return (
-    <div style={{paddingTop:"20px"}}>
+    <Box style={{paddingTop:"20px"}} w={{base:'120vw',lg:'100vw'}} >
       <hr />
       <Heading textAlign='center' fontWeight={500} fontSize={25} mb={10}>INDIA'S LARGEST HEALTHCARE PLATFORM</Heading>
       <Flex justifyContent='center' alignItems='center'>
@@ -47,9 +47,9 @@ const Footer = () => {
         </Box>
       </Flex>
       <hr />
-      <Box px={20} py={16} bg='orange.50'>
+      <Box  py={16} bg='orange.50'>
         <Flex justifyContent='space-around'>
-          <Box pl={8}>
+          <Box>
             <b>Know Us</b> 
             <UnorderedList >
               <ListItem><Link _hover={{textDecoration:'none'}} href=''>About Us</Link></ListItem>
@@ -260,7 +260,7 @@ Got a health query? Consult doctors online from the comfort of your home for fre
       </Box>
   
   </Flex>
-    </div>
+    </Box>
   )
 }
 

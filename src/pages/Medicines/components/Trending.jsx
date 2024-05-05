@@ -78,7 +78,7 @@ const trending = [
 
 const Trending = () => {
   return (
-    <div>
+    <div style={{overflow:'hidden'}}>
       <div className="sunny">
         <p className="topdeal">Trending now</p>
       </div>

@@ -85,7 +85,7 @@ export default Navbar
 
 const Navbar2 = ()=>{
   return(
-    <Box p={4} py={{base:2}} position="fixed" bg='white' bottom="0" left="0" right="0" className='nav2'>
+    <Box p={4} py={2} position="fixed" bg='white' bottom="0" left="0" right="0" className='nav2'>
       <Flex>
         <Box>
           <Link to='/'>

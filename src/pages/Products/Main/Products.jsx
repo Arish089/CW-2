@@ -1,37 +1,53 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from 'react-icons/fa';
 import { SimpleGrid, Image,Text,Card,CardBody,CardFooter,ButtonGroup,Button,Divider,Heading,Stack } from '@chakra-ui/react'
-import data from '../../../db.json'
+import { Link } from 'react-router-dom';
 
 const Products = () => {
 const [items,setItems] = useState([]); 
-const [cartItems, setCartItems] = useState([]);
+const [cartItems, setCartItems] = useState({});
 
+const getProducts = async(ele)=>{
+  setCartItems(ele)
+  try {
+    const resp = await axios.get(`http://localhost:8080/product`)
+    const data = await resp.data
+    console.log(data);
+    setItems(data)
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 useEffect(()=>{
-setItems(data.featured)
-
+getProducts()
 },[])
 
+const handleCart = async(elem)=>{
+  try {
+    const resp = await axios({
+      method:"POST",
+      baseURL: `http://localhost:8080`,
+      url: `/cart/addToCart`,
+      data: elem 
+    })
+    const data =  resp.data;
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-useEffect(() => {
-  const storedCartItems = JSON.parse(localStorage.getItem('unit')) || [];
-  //console.log(storedCartItems);
-  setCartItems(storedCartItems);
-}, []);
-
-useEffect(()=>{
-localStorage.setItem('unit',JSON.stringify(cartItems))
-},[cartItems])
 
 
 return (
     <SimpleGrid columns={{base:1,sm:2,md:3}} gap={{base:2,sm:6,md:12}}>
        {items.map((elem)=>{
         return(
-            <Card maxW='sm' key={elem.id} boxShadow='lg'>
+          
+            <Card maxW='sm' key={elem.id} bg='#f8f8f8'  boxShadow='lg' _hover={{transform:"translateY(-5px) scale(1.05)"}}>
   <CardBody >
     <Image
       src={elem.image_url}
@@ -40,7 +56,7 @@ return (
       w={32} h={40}
     />
     <Stack mt='6' spacing='3'>
-      <Heading size='md'>{elem.name}</Heading>
+    <Link to={`/product/${elem.id}`} ><Heading size='md'>{elem.name}</Heading></Link>
       <Text display='flex' alignItems='center' gap={2}>
       <FaStar />{elem.star}
       </Text>
@@ -55,15 +71,13 @@ return (
       <Button variant='solid' colorScheme='blue'>
         Buy now
       </Button>
-      <Button variant='ghost' colorScheme='blue' onClick={()=>{
-        setCartItems((prevCartItems) => [...prevCartItems, elem]);
-      }}>
+      <Button variant='ghost' colorScheme='blue' onClick={()=>handleCart(elem)}>
         Add to cart
       </Button>
     </ButtonGroup>
   </CardFooter>
 </Card>
-        )
+     )
        })}
 
     </SimpleGrid>

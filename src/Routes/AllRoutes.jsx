@@ -13,6 +13,7 @@ import Cart from '../pages/Cart'
 import Help from '../pages/Help'
 import MainProducts from '../pages/Products/MainProducts'
 import PrivateRoute from './PrivateRoute'
+import SingleProduct from '../pages/SingleProduct'
 
 
 const AllRoutes = () => {
@@ -36,6 +37,10 @@ const AllRoutes = () => {
         <MainProducts />
         </PrivateRoute>
       }/>
+      <Route path='/product/:id' element={
+      <PrivateRoute>
+        <SingleProduct />
+      </PrivateRoute>}/>
       </Routes>
     </div>
   )
