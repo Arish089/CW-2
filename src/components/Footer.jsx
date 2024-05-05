@@ -12,7 +12,7 @@ const Footer = () => {
   const [mob,setMob] = useState('')
   const [index,setIndex] = useState([-1])
   return (
-    <Box style={{paddingTop:"20px"}} w={{base:'120vw',lg:'100vw'}} >
+    <Box style={{paddingTop:"20px"}} w={{base:'100vw',lg:'99vw'}}  >
       <hr />
       <Heading textAlign='center' fontWeight={500} fontSize={25} mb={10}>INDIA'S LARGEST HEALTHCARE PLATFORM</Heading>
       <Flex justifyContent='center' alignItems='center'>

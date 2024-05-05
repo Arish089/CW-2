@@ -47,7 +47,7 @@ return (
        {items.map((elem)=>{
         return(
           
-            <Card maxW='sm' key={elem.id} bg='#f8f8f8'  boxShadow='lg' _hover={{transform:"translateY(-5px) scale(1.05)"}}>
+            <Card maxW='sm' key={elem.id}  boxShadow='lg' _hover={{transform:"scale(1.02)"}}>
   <CardBody >
     <Image
       src={elem.image_url}
@@ -56,7 +56,7 @@ return (
       w={32} h={40}
     />
     <Stack mt='6' spacing='3'>
-    <Link to={`/product/${elem.id}`} ><Heading size='md'>{elem.name}</Heading></Link>
+    <Link to={`/products/${elem._id}`} ><Heading size='md'>{elem.name}</Heading></Link>
       <Text display='flex' alignItems='center' gap={2}>
       <FaStar />{elem.star}
       </Text>
@@ -85,3 +85,8 @@ return (
 }
 
 export default Products
+/**
+          let newHours = Math.floor(timer/3600);
+          let newMinutes = Math.floor((timer/60)-(newHours*60)) ;
+          let newSeconds = timer - ((newHours*3600) +(newMinutes*60));
+        */

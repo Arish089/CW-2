@@ -37,7 +37,7 @@ const AllRoutes = () => {
         <MainProducts />
         </PrivateRoute>
       }/>
-      <Route path='/product/:id' element={
+      <Route path='/products/:id' element={
       <PrivateRoute>
         <SingleProduct />
       </PrivateRoute>}/>

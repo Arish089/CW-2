@@ -109,7 +109,7 @@ const handleRemove = async(id)=>{
         />
         
         <Box>
-        <Text fontWeight='semibold' fontSize={16}>{elem.name}</Text>
+        <Link to={`/products/${elem._id}`}><Text fontWeight='semibold' fontSize={16}>{elem.name}</Text></Link>
         <Text fontWeight='medium' color='gray' fontSize={12}>{elem.desc}</Text>
         <Text decoration='underline' cursor='pointer' _hover={{color:'red.400'}} onClick={()=>handleRemove(elem._id)}>Remove</Text>
         </Box>
