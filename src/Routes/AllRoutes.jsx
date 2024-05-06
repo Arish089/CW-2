@@ -14,6 +14,8 @@ import Help from '../pages/Help'
 import MainProducts from '../pages/Products/MainProducts'
 import PrivateRoute from './PrivateRoute'
 import SingleProduct from '../pages/SingleProduct'
+import Payment from '../pages/Payment'
+import OrderSummary from '../pages/OrderSummary'
 
 
 const AllRoutes = () => {
@@ -40,6 +42,16 @@ const AllRoutes = () => {
       <Route path='/products/:id' element={
       <PrivateRoute>
         <SingleProduct />
+      </PrivateRoute>}/>
+
+      <Route path='/payment' element={
+      <PrivateRoute>
+        <Payment />
+      </PrivateRoute>}/>
+
+      <Route path='/summary' element={
+      <PrivateRoute>
+        <OrderSummary />
       </PrivateRoute>}/>
       </Routes>
     </div>

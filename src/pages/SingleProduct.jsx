@@ -16,9 +16,10 @@ const SingleProduct = () => {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date())
 
+
   const getAddresses = async ()=>{
     try {
-      const resp = await axios.get(`http://localhost:8080/address`);
+      const resp = await axios.get(`https://cw-2-back-end.onrender.com/address`);
       const data = await resp.data
       console.log(data);
       setAddress(data)
@@ -29,7 +30,7 @@ const SingleProduct = () => {
 
   const getSingleProd = async()=>{
     try {
-      const resp = await axios.get(`http://localhost:8080/product/${id}`)
+      const resp = await axios.get(`https://cw-2-back-end.onrender.com/product/${id}`)
       const data = await resp.data
       console.log(data);
       setSingleProd(data)
@@ -40,6 +41,7 @@ const SingleProduct = () => {
   useEffect(() => {
     getSingleProd();
     getAddresses()
+    currentDateTime.setDate(currentDateTime.getDate() +3)
 
     const intervalId = setInterval(() => {
       setTimer(timer => {
@@ -180,8 +182,9 @@ console.log(timer.sec);
             <Text color='green.400' fontSize={18} fontWeight='bold'>{formattedDate}</Text>
             </Flex>
             <br />
-            <Text  color='gray'>Delivering to:</Text>
-            <Select fontWeight='semibold'>{address.map((elem)=>{
+            <Flex alignItems='center'>
+            <Box color='gray' w='25%'>Delivering to:</Box>
+            <Select variant='flushed' fontWeight='semibold'>{address.map((elem)=>{
               return(<>
               <option value={elem._id}>
                 {elem.name? elem.name:elem.city}&nbsp;
@@ -189,6 +192,7 @@ console.log(timer.sec);
               </option>
               </>)
             })}</Select>
+            </Flex>
           </Box>
 
           <Box>

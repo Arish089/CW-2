@@ -4,7 +4,7 @@ import { Box, Button,Image, Flex, Img,Text,Input,Divider,Heading,Spacer } from '
 import { FaStar,FaRupeeSign, FaPlus, FaMinus, FaChevronRight, FaQuestionCircle } from 'react-icons/fa'
 import {InfoOutlineIcon} from '@chakra-ui/icons'
 import {BsTicket, BsQuestionCircle, BsHouse, BsTrash} from 'react-icons/bs'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Cart = () => {
 const [cartProd,setCartProd] = useState([])
@@ -13,9 +13,11 @@ const [isChecked, setIsChecked] = useState(false)
 const [discount, setDiscount] = useState(0)
 const [mrp, setMrp] = useState(0)
 
+const navigate = useNavigate()
+
 const fetchCart= async ()=>{
   try {
-    const resp = await axios.get(`http://localhost:8080/cart`)
+    const resp = await axios.get(`https://cw-2-back-end.onrender.com/cart`)
     const data = await resp.data;
     console.log(data);
     var pri = 0;
@@ -48,7 +50,7 @@ const handleDeleteProd = async(id)=>{
   try {
     const resp = await axios({
       method:"delete",
-      baseURL: `http://localhost:8080`,
+      baseURL: `https://cw-2-back-end.onrender.com`,
       url: `/cart/delete/${id}`
     })
     const data = await resp.data
@@ -63,7 +65,7 @@ const handleUpdateProd = async(id)=>{
   try {
     const resp = await axios({
       method:"patch",
-      baseURL: `http://localhost:8080`,
+      baseURL: `https://cw-2-back-end.onrender.com`,
       url: `/cart/update/${id}`
     })
     const data = await resp.data
@@ -78,7 +80,7 @@ const handleRemove = async(id)=>{
   try {
     const resp = await axios({
       method:"delete",
-      baseURL: `http://localhost:8080`,
+      baseURL: `https://cw-2-back-end.onrender.com`,
       url: `/cart/remove/${id}`
     })
     const data = await resp.data
@@ -240,7 +242,7 @@ const handleRemove = async(id)=>{
      </Box>
      
      <Heading display='flex' alignItems='center' my={2}>Total Bill :<FaRupeeSign />{total}</Heading>
-     <Button colorScheme='teal' w={200} h={12} fontSize={20} my={2}>Checkout</Button>
+     <Button colorScheme='teal' w={200} h={12} fontSize={20} my={2} onClick={()=>navigate('/summary')}>Checkout</Button>
 </>
       }
 

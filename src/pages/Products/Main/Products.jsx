@@ -12,7 +12,7 @@ const [cartItems, setCartItems] = useState({});
 const getProducts = async(ele)=>{
   setCartItems(ele)
   try {
-    const resp = await axios.get(`http://localhost:8080/product`)
+    const resp = await axios.get(`https://cw-2-back-end.onrender.com/product`)
     const data = await resp.data
     console.log(data);
     setItems(data)
@@ -29,7 +29,7 @@ const handleCart = async(elem)=>{
   try {
     const resp = await axios({
       method:"POST",
-      baseURL: `http://localhost:8080`,
+      baseURL: `https://cw-2-back-end.onrender.com`,
       url: `/cart/addToCart`,
       data: elem 
     })
