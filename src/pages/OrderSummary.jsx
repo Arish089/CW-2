@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react'
 import { useNavigate,Link } from 'react-router-dom'
-import { Box,Flex,Text, Heading, Divider, Image } from '@chakra-ui/react'
+import { Box,Flex,Text, Heading, Divider, Image, Button } from '@chakra-ui/react'
 
 import axios from 'axios'
-import { BsHouse, BsInfo, BsInfoCircle, BsQuestionCircle } from 'react-icons/bs'
+import { BsHouse,  BsInfoCircle, BsPhone, BsQuestionCircle } from 'react-icons/bs'
 
 const OrderSummary = () => {
   const [cartProd,setCartProd] = useState([])
@@ -25,7 +25,7 @@ const navigate = useNavigate()
       const data = await resp.data
       console.log(data);
       setAddress(data)
-      setSingleAddress(data[0])
+      setSingleAddress(data[2])
     } catch (error) {
       console.log(error);
     }
@@ -97,8 +97,8 @@ customDate.setDate(customDate.getDate() + 2)
             <Flex key={elem._id} gap={2} alignItems='center' p={1}>
               <Image src={elem.image_url} boxSize={10} />
               <Flex direction='column' p={1} fontSize='14px'>
-                <Text fontWeight='bold'>{elem.desc}</Text>
-                <Text fontSize={12}>{elem.name}</Text>
+               <Link to={`/products/${elem._id}`}><Text fontWeight='bold'>{elem.name}</Text></Link>
+                <Text fontSize={12}>{elem.desc}</Text>
               </Flex>
             </Flex>
           )}
@@ -163,10 +163,13 @@ customDate.setDate(customDate.getDate() + 2)
 
         {
         //address.map(elem => 
-        <Flex key={singleAddress._id} direction='column'>
-        <Flex ><BsHouse size={20}/>
-        <Text fontSize={14} fontWeight='bold' opacity={0.9}> {singleAddress.address_place}</Text>
-          </Flex>    
+        <Flex key={singleAddress._id} direction='column' gap={2}>
+        <Flex gap={2}><BsHouse size={20}/>
+        <Text fontSize={16} fontWeight='bold' opacity={0.9}>{singleAddress.address_place}</Text>
+          </Flex>
+          <Text fontSize={14} fontWeight='semibold' opacity={0.7}>{singleAddress.buliding}, {singleAddress.city}-{singleAddress.pincode}, {singleAddress.state}</Text>
+          <Flex alignItems='center' gap={2}><BsPhone />{singleAddress.mobile}</Flex>
+          <Button bgColor='tomato' color='white' fontSize={18} _hover={{bgColor:'red.500'}} onClick={()=>navigate('/payment')}>Proceed to payment</Button>    
           </Flex>
         //)
       }
