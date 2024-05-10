@@ -56,7 +56,7 @@ const [error, setError] = useState(false);
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
         "order_id": finalresp.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        "callback_url": "http://localhost:8080/order/payment-verification",
+        "callback_url": "https://cw-2-back-end.onrender.com/order/payment-verification",
         "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
             "name": "Gaurav Kumar", //your customer's name
             "email": "gaurav.kumar@example.com",
