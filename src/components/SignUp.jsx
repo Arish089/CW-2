@@ -3,7 +3,7 @@ import { Button,Modal,ModalBody,ModalContent,ModalOverlay
   ,ModalHeader,ModalCloseButton,ModalFooter,FormControl,FormLabel,Input,Text
   } from '@chakra-ui/react'
   import { useDisclosure } from '@chakra-ui/react'
-import MobileSignup from '../AuthContext/AuthComponents/MobileAuth/MobileSignup'
+import EmailSignUp from '../AuthContext/AuthComponents/EmailAuth/EmailSignup'
 
 const SignUp = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -25,7 +25,7 @@ return (
         <ModalHeader>Create your account</ModalHeader>
         <ModalCloseButton />
         <ModalBody pb={6}>
-          <MobileSignup />
+          <EmailSignUp />
         </ModalBody>
 
         <ModalFooter>

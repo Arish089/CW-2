@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import { Box} from '@chakra-ui/react'
+import { Box, useBreakpointValue} from '@chakra-ui/react'
 
 import { Navbar_dropdown } from '../../Utilities/NavbarDropdown'
 import Advertisement from '../../Utilities/Advertisement'
@@ -15,6 +15,9 @@ import Healthconcern from './components/HealthConcern'
 import Flashdeals from './components/Flashdeals'
 import Ayurved from './components/Ayurveda'
 import SecondLastFooter from './components/SecondLastFooter'
+import Navbar, { Navbar2 } from '../../components/Navbar'
+import Searchbars from '../../components/Searchbars'
+import Footer from '../../components/Footer'
 
 const Medicines = () => { 
   return (

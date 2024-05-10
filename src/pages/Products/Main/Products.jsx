@@ -2,28 +2,41 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from 'react-icons/fa';
-import { SimpleGrid, Image,Text,Card,CardBody,CardFooter,ButtonGroup,Button,Divider,Heading,Stack } from '@chakra-ui/react'
+import { SimpleGrid,Box,Center, Image,Text,Card,CardBody,CardFooter,ButtonGroup,Button,Divider,Heading,Stack, Flex } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
+import Loading from '../../../components/Loading';
+import Error from '../../../components/Error';
 
 const Products = () => {
-const [items,setItems] = useState([]); 
-const [cartItems, setCartItems] = useState({});
+  const [page, setPage] = useState(1)
+const [items,setItems] = useState([]);
+const [loading, setLoading] = useState(false); 
+const [error, setError] = useState(false);
+const [totalPage, setTotalPage] = useState(0)
 
-const getProducts = async(ele)=>{
-  setCartItems(ele)
+const getProducts = async()=>{
+  setLoading(true)
   try {
-    const resp = await axios.get(`https://cw-2-back-end.onrender.com/product`)
+    const resp = await axios.get(`https://cw-2-back-end.onrender.com/product`,{
+      params:{
+        page:page
+      }
+    })
     const data = await resp.data
-    console.log(data);
-    setItems(data)
+   // console.log(data);
+    setItems(data.products)
+    setTotalPage(data.totalPages)
   } catch (error) {
     console.log(error);
+    setError(true)
+  }finally{
+setLoading(false)
   }
 }
 
 useEffect(()=>{
 getProducts()
-},[])
+},[page])
 
 const handleCart = async(elem)=>{
   try {
@@ -41,8 +54,9 @@ const handleCart = async(elem)=>{
 }
 
 
-
-return (
+return (<> 
+{loading && <Loading />}
+{error && <Error />}
     <SimpleGrid columns={{base:1,sm:2,md:3}} gap={{base:2,sm:6,md:12}}>
        {items.map((elem)=>{
         return(
@@ -81,12 +95,15 @@ return (
        })}
 
     </SimpleGrid>
+    <Center my={8}>
+      <Flex justifyContent='space-between' w={60}>
+        <Button bg='blue.500' color='white' _hover={{bg:'blue.700'}} onClick={()=>setPage(page-1)} isDisabled={page <= 1}>Prev</Button>
+        <Text fontSize={28} fontWeight='semibold'>{page}</Text>
+        <Button bg='blue.500' color='white'  _hover={{bg:'blue.700'}} onClick={()=>setPage(page+1)} isDisabled={page >= totalPage}>Next</Button>
+      </Flex>
+      </Center>
+    </>
   )
 }
 
 export default Products
-/**
-          let newHours = Math.floor(timer/3600);
-          let newMinutes = Math.floor((timer/60)-(newHours*60)) ;
-          let newSeconds = timer - ((newHours*3600) +(newMinutes*60));
-        */

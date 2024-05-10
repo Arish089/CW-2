@@ -1,10 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Box, Button,Image, Flex, Img,Text,Input,Divider,Heading,Spacer } from '@chakra-ui/react'
+import { Box, Button,Image, Flex, Img,Text,Input,Divider,Heading,Spacer, useBreakpointValue } from '@chakra-ui/react'
 import { FaStar,FaRupeeSign, FaPlus, FaMinus, FaChevronRight, FaQuestionCircle } from 'react-icons/fa'
 import {InfoOutlineIcon} from '@chakra-ui/icons'
 import {BsTicket, BsQuestionCircle, BsHouse, BsTrash} from 'react-icons/bs'
 import {Link, useNavigate} from 'react-router-dom'
+import Error from '../components/Error'
+import Loading from '../components/Loading'
+
 
 const Cart = () => {
 const [cartProd,setCartProd] = useState([])
@@ -12,14 +15,17 @@ const [total,setTotal] = useState(0)
 const [isChecked, setIsChecked] = useState(false)
 const [discount, setDiscount] = useState(0)
 const [mrp, setMrp] = useState(0)
+const [loading, setLoading] = useState(false); 
+const [error, setError] = useState(false);
 
 const navigate = useNavigate()
 
 const fetchCart= async ()=>{
+  setLoading(true)
   try {
     const resp = await axios.get(`https://cw-2-back-end.onrender.com/cart`)
     const data = await resp.data;
-    console.log(data);
+   // console.log(data);
     var pri = 0;
     var disc = 0;
     var retailPrice = 0;
@@ -33,10 +39,13 @@ const fetchCart= async ()=>{
   setDiscount(disc);
   setMrp(retailPrice);
   setCartProd(data)
-  console.log(data)
+  //console.log(data)
 
   } catch (error) {
     console.log(error);
+    setError(true)
+  }finally{
+    setLoading(false)
   }}
   
 useEffect(()=>{
@@ -90,7 +99,11 @@ const handleRemove = async(id)=>{
     console.log(error);
   }
 }
-  return (
+  return (<>
+    
+    
+  {loading && <Loading />}
+{error && <Error />}
     <Flex direction='column' justifyContent='center' alignItems='center' mb={32}>
       {cartProd.length > 0 &&
         <>
@@ -242,7 +255,7 @@ const handleRemove = async(id)=>{
      </Box>
      
      <Heading display='flex' alignItems='center' my={2}>Total Bill :<FaRupeeSign />{total}</Heading>
-     <Button colorScheme='teal' w={200} h={12} fontSize={20} my={2} onClick={()=>navigate('/summary')}>Checkout</Button>
+     <Button colorScheme='teal' w={200} h={12} fontSize={20} my={2} onClick={()=>navigate('/payment')}>Checkout</Button>
 </>
       }
 
@@ -258,6 +271,7 @@ const handleRemove = async(id)=>{
       </Link>
      </Box>}
     </Flex>
+    </>
   )
 }
 

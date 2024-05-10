@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { Box,Flex, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Image, Heading, Text, Radio, RadioGroup, Button, Select } from '@chakra-ui/react';
+import { Box,Flex, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Image, Heading, Text, Radio, RadioGroup, Button, Select, useBreakpointValue } from '@chakra-ui/react';
 import { ChevronRightIcon} from '@chakra-ui/icons';
 import {FaArrowTrendUp, FaStar } from 'react-icons/fa6'
 import {BsStopwatch } from 'react-icons/bs'
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const SingleProduct = () => {
   const {id} = useParams();
 
   const [address, setAddress] = useState([])
-  const [singleAddress, setSingleAddress] = useState({})
   const [singleProd, setSingleProd] = useState({})
   const [timer,setTimer] = useState({hour:8, min:0, sec:0})
+  
+const [loading, setLoading] = useState(false); 
+const [error, setError] = useState(false);
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date())
 
@@ -29,6 +33,7 @@ const SingleProduct = () => {
   }
 
   const getSingleProd = async()=>{
+    setLoading(true)
     try {
       const resp = await axios.get(`https://cw-2-back-end.onrender.com/product/${id}`)
       const data = await resp.data
@@ -36,8 +41,12 @@ const SingleProduct = () => {
       setSingleProd(data)
     } catch (error) {
       console.log(error);
+      setError(true)
+    }finally{
+      setLoading(false)
     }
   }
+
   useEffect(() => {
     getSingleProd();
     getAddresses()
@@ -99,7 +108,11 @@ console.log(timer.sec);
   const formattedDate = currentDateTime.toLocaleDateString(undefined, options);
 
   return (
+    <>
     <Box w='85%' m='auto'>
+      
+  {loading && <Loading />}
+{error && <Error />}
       <Box p={3}>
       <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
   <BreadcrumbItem>
@@ -201,6 +214,7 @@ console.log(timer.sec);
         </Flex>
       </Flex>
     </Box>
+    </>
   )
 }
 

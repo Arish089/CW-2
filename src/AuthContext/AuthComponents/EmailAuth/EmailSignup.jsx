@@ -1,11 +1,11 @@
-import {  signInWithEmailAndPassword,setPersistence,browserLocalPersistence, browserSessionPersistence } from "firebase/auth";
+import {  signInWithEmailAndPassword,setPersistence, browserSessionPersistence, createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../../FirebaseAuth"
 import { useState } from "react";
 import { FormControl,FormLabel,Input,Box,Button } from "@chakra-ui/react";
 
 
 
-const EmailSignin = ()=>{
+const EmailSignUp = ()=>{
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [isEmailFocused,setisEmailFocused] = useState(false)
@@ -16,11 +16,11 @@ const EmailSignin = ()=>{
         e.preventDefault();
         await setPersistence(auth, browserSessionPersistence);
         try {
-            const userCredent = await signInWithEmailAndPassword(auth,email,password)
+            const userCredent = await createUserWithEmailAndPassword(auth,email,password)
             const user = userCredent.user
-            console.log(user,"Signed in");
+            console.log(user,"is successfully registered");
         } catch (error) {
-            console.log("Sign-In error",error);
+            console.log("Sign-Up error",error);
         }
         }
 
@@ -67,7 +67,7 @@ const EmailSignin = ()=>{
                 onFocus={() => setisPasswordFocused(true)}
                 onBlur={() => setisPasswordFocused(false)}
                  onChange={(e)=>setPassword(e.target.value)}/>
-                 <Input mt={10} type="submit" value="SignIn" bg='red.500' color='white' onClick={SignInEmail}/>
+                 <Input mt={10} type="submit" value="Register" bg='red.500' color='white' onClick={SignInEmail}/>
                  </Box>
             </FormControl>
 
@@ -76,4 +76,4 @@ const EmailSignin = ()=>{
         )
 }
 
-export default EmailSignin
+export default EmailSignUp

@@ -10,11 +10,7 @@ const showTopNavbar = useBreakpointValue({base: false, md:true})
 
   return (
     <>
-    {showTopNavbar && <Navbar />}
-    <Searchbars />
     <AllRoutes />
-    <Footer />
-    {!showTopNavbar && <Navbar2/>}
     
     </>
   )
