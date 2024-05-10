@@ -73,9 +73,9 @@ const AllRoutes = () => {
       </PrivateRoute>}/>
 
       <Route path='/success' element={
-      <PrivateRoute>
+      
         <Success />
-      </PrivateRoute>}/>
+      }/>
 
       </Routes>
       {excludeNavbarFooter && <Footer />}
