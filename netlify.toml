@@ -6,7 +6,7 @@
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
-  #[[redirects]]
+  [[redirects]]
   from = "/success?payment_id=:payment_id"  # Matches success URL with query parameter
   to = "/success/:payment_id"  # Routes to React component (replace with your path)
   status = 200
