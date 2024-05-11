@@ -35,7 +35,7 @@ The Tata 1mg Clone project aims to replicate the functionality and features of t
 ## Clone the repository:
 
 frontend : git clone https://github.com/Arish089/CW-2
-backend: gut clone https://github.com/Arish089/CW-2-back-end-
+backend: git clone https://github.com/Arish089/CW-2-back-end-
 
 # Navigate to the project directory:
 
