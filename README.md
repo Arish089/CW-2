@@ -45,7 +45,7 @@ cd TATA-mg-clone
 ## Install server dependencies:
 
 cd backend
-npm install
+`npm install`
 
 
 ## Install client dependencies:
