@@ -25,7 +25,7 @@ The Tata 1mg Clone project aims to replicate the functionality and features of t
 - Express.js: Backend framework for handling HTTP requests, routing, and middleware.
 - React.js: Frontend library for building the user interface and components.
 - Node.js: JavaScript runtime environment for server-side code execution.
-- Google Firebase Authentication : JSON Web Tokens for secure authentication and authorization.
+- Google Firebase Authentication : Firebase tokens for secure authentication and authorization.
 - Axios: HTTP client for making API requests to the backend server.
 - Razorpay API - Payment API(test mode) for Payment functionality.
 - Chakra UI: React UI framework for designing responsive and customizable UI components.
