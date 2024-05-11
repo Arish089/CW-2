@@ -9,28 +9,30 @@ This project is a clone of the Tata 1mg website, built using the MERN (MongoDB, 
 The Tata 1mg Clone project aims to replicate the functionality and features of the Tata 1mg website, which offers various healthcare services, including online pharmacy, doctor consultations, lab tests, and health articles. This project provides a platform for users to browse and purchase medicines .
 
 ## Features
-. Product Page: Browse through a wide range of pharmaceutical products available on the platform.
+- Product Page: Browse through a wide range of pharmaceutical products available on the platform.
 
-. Search Functionality: Easily search for specific products using keywords or filters.
+- Search Functionality: Easily search for specific products using keywords or filters.
 
-. Add to Cart: Select desired products and add them to the shopping cart for later purchase.
+- Add to Cart: Select desired products and add them to the shopping cart for later purchase.
 
-. Single Product Pages: View detailed information about a specific product on dedicated product pages.
+- Single Product Pages: View detailed information about a specific product on dedicated product pages.
 
-. Payment Gateway Integration: Complete secure transactions using the Razorpay payment gateway.
+- Payment Gateway Integration: Complete secure transactions using the Razorpay payment gateway.
 
-. Firebase Authentication: Authenticate users securely using Firebase Authentication, supporting mobile number and email/password sign-in methods.
+- Firebase Authentication: Authenticate users securely using Firebase Authentication, supporting mobile number and email/password sign-in methods.
 
-. CRUD Operations: Perform CRUD operations to manage product data (Create, Read, Update, Delete).
+- CRUD Operations: Perform CRUD operations to manage product data (Create, Read, Update, Delete).
 
-. Responsive design: The application is designed to be mobile-friendly and accessible on various devices.
+- Responsive design: The application is designed to be mobile-friendly and accessible on various devices.
 
 ## Technologies Used
 
 1. Frontend:
 
 - React.js: Frontend library for building the user interface and components.
+
 - Vite: Used as bundler in the project.
+
 - Deployment: Frontend deployed on Netlify.
 
 2. Backend:
