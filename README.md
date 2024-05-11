@@ -9,25 +9,52 @@ This project is a clone of the Tata 1mg website, built using the MERN (MongoDB, 
 The Tata 1mg Clone project aims to replicate the functionality and features of the Tata 1mg website, which offers various healthcare services, including online pharmacy, doctor consultations, lab tests, and health articles. This project provides a platform for users to browse and purchase medicines .
 
 ## Features
+. Product Page: Browse through a wide range of pharmaceutical products available on the platform.
 
-- User authentication: Users can sign up, sign in, and sign out securely.
-  - Sign Up - Email/Password
-  - Sign In - Mobile, Email/Password.
-- Browse medicines: Users can search for medicines and browse for it the dedicated page. 
-- View Details: Users can view details of every product on their respective page.
-- Add to Cart: add them to the cart for purchase.
-- Payment: Users can do the mock payment on the payment page powered by razorpay. 
-- Responsive design: The application is designed to be mobile-friendly and accessible on various devices.
+. Search Functionality: Easily search for specific products using keywords or filters.
+
+. Add to Cart: Select desired products and add them to the shopping cart for later purchase.
+
+. Single Product Pages: View detailed information about a specific product on dedicated product pages.
+
+. Payment Gateway Integration: Complete secure transactions using the Razorpay payment gateway.
+
+. Firebase Authentication: Authenticate users securely using Firebase Authentication, supporting mobile number and email/password sign-in methods.
+
+. CRUD Operations: Perform CRUD operations to manage product data (Create, Read, Update, Delete).
+
+. Responsive design: The application is designed to be mobile-friendly and accessible on various devices.
 
 ## Technologies Used
 
-- MongoDB: Database for storing user data, product information, and other application data.
-- Express.js: Backend framework for handling HTTP requests, routing, and middleware.
+1. Frontend:
+
 - React.js: Frontend library for building the user interface and components.
+- Vite: Used as bundler in the project.
+- Deployment: Frontend deployed on Netlify.
+
+2. Backend:
+
+- MongoDB: Database for storing user data, product information, and other application data.
+
+- Express.js: Backend framework for handling HTTP requests, routing, and middleware.
+
 - Node.js: JavaScript runtime environment for server-side code execution.
+
+- Deployment: Backend deployed on Render.com.
+
+3. Authentication:
+
 - Google Firebase Authentication : Firebase tokens for secure authentication and authorization.
-- Axios: HTTP client for making API requests to the backend server.
-- Razorpay API - Payment API(test mode) for Payment functionality.
+
+4. Payment Gateway:
+
+- Razorpay - Payment gateway(test mode) for Payment functionality.
+
+5. Tools:
+
+- Axios: HTTP client for making API requests to the backend server and performing CRUD.
+
 - Chakra UI: React UI framework for designing responsive and customizable UI components.
 
 ## Installation
