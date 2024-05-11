@@ -39,19 +39,20 @@ backend: gut clone https://github.com/Arish089/CW-2-back-end-
 
 # Navigate to the project directory:
 
-cd TATA-mg-clone
+```cd TATA-mg-clone```
 
 
 ## Install server dependencies:
 
-cd backend
+```cd backend```
+
 ```npm install```
 
 
 ## Install client dependencies:
 
-cd ../frontend
-npm install
+```cd ../frontend```
+```npm install```
 
 ## Configuration
 
@@ -67,19 +68,20 @@ npm install
 ## Usage
 
 1. Start the server:
-cd backend
-npm start
+
+```cd backend```
+```npm start```
 
 
 2. Start the client:
 
-cd ../frontend
-npm run dev
+```cd ../frontend```
+```npm run dev```
 
 Access the application in your web browser:
 
 url
-http://localhost:5173
+```http://localhost:5173```
 
 ## Credits
 This project is created by [Arish Ali] as a part of construct-week event. It is inspired by and built as a clone of the TATA-mg platform.
