@@ -1,6 +1,6 @@
 # Tata 1mg Clone
 
-![Tata-1Mg](https://i.pinimg.com/736x/2a/61/83/2a618394e93bbdf6c4515463df2651af.jpg)
+![Tata-1Mg](https://pbs.twimg.com/profile_images/1727554883124113408/gVsBLW-5_400x400.jpg)
 
 This project is a clone of the Tata 1mg website, built using the MERN (MongoDB, Express.js, React.js, Node.js) stack.
 
