@@ -3,19 +3,15 @@ import { AuthContext } from '../AuthContext/FirebaseAuthContext'
 import { Navigate } from 'react-router-dom'
 import LogIn from '../components/LogIn'
 import SignUp from '../components/SignUp'
-import { Box, Flex,Text, useBreakpointValue } from '@chakra-ui/react'
-import Navbar, { Navbar2 } from '../components/Navbar'
-import Footer from '../components/Footer'
+import { Box, Flex,Text } from '@chakra-ui/react'
 
 const PrivateRoute = ({children}) => {
   const {CurrentUser} = useContext(AuthContext)
-  const showTopNavbar = useBreakpointValue({base: false, md:true})
   //console.log(CurrentUser );
   
   if(!CurrentUser){
     return(
       <>
-      {showTopNavbar && <Navbar />}
     <Flex direction='column'>
       <Text textAlign='center' fontSize={24} fontWeight='semibold'>
         Please login for further access.
@@ -25,8 +21,6 @@ const PrivateRoute = ({children}) => {
      </Flex>
     </Flex>
     
-    <Footer />
-    {!showTopNavbar && <Navbar2/>}
     </>
     )
   }

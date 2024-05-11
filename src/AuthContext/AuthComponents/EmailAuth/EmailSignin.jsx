@@ -1,7 +1,7 @@
 import {  signInWithEmailAndPassword,setPersistence,browserLocalPersistence, browserSessionPersistence } from "firebase/auth";
 import {auth} from "../../FirebaseAuth"
 import { useState } from "react";
-import { FormControl,FormLabel,Input,Box,Button } from "@chakra-ui/react";
+import { FormControl,FormLabel,Input,Box,Button, Text } from "@chakra-ui/react";
 
 
 
@@ -10,6 +10,7 @@ const EmailSignin = ()=>{
     const [password,setPassword] = useState('')
     const [isEmailFocused,setisEmailFocused] = useState(false)
     const [isPasswordFocused,setisPasswordFocused] = useState(false)
+    const [err, setErr] = useState(false)
 
 
     async function SignInEmail(e){
@@ -18,9 +19,11 @@ const EmailSignin = ()=>{
         try {
             const userCredent = await signInWithEmailAndPassword(auth,email,password)
             const user = userCredent.user
+            setErr(false)
             console.log(user,"Signed in");
         } catch (error) {
             console.log("Sign-In error",error);
+            setErr(true)
         }
         }
 
@@ -67,6 +70,7 @@ const EmailSignin = ()=>{
                 onFocus={() => setisPasswordFocused(true)}
                 onBlur={() => setisPasswordFocused(false)}
                  onChange={(e)=>setPassword(e.target.value)}/>
+                 {err && <Text color='red.400'>Invalid credentials</Text>}
                  <Input mt={10} type="submit" value="SignIn" bg='red.500' color='white' onClick={SignInEmail}/>
                  </Box>
             </FormControl>
